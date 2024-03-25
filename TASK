@@ -1,0 +1,40 @@
+class Vehicle {
+    constructor(color = "blue", numWheels = 4, horn = "beep beep") {
+        this.color = color;
+        this.numWheels = numWheels;
+        this.horn = horn;
+    }
+
+    honkHorn() {
+        console.log(this.horn);
+    }
+}
+
+module.exports = Vehicle;
+const Vehicle = require('./vehicle');
+
+class Bicycle extends Vehicle {
+    constructor(color = "blue", numWheels = 2, horn = "honk honk") {
+        super(color, numWheels, horn);
+    }
+}
+
+module.exports = Bicycle;
+const Vehicle = require('./vehicle');
+const Bicycle = require('./bicycle');
+
+
+const car = new Vehicle();
+console.log("Car Details:");
+console.log("Color:", car.color);
+console.log("Number of Wheels:", car.numWheels);
+console.log("Horn Sound:", car.horn);
+car.honkHorn();
+
+
+const bike = new Bicycle();
+console.log("\nBicycle Details:");
+console.log("Color:", bike.color);
+console.log("Number of Wheels:", bike.numWheels);
+console.log("Horn Sound:", bike.horn);
+bike.honkHorn();
